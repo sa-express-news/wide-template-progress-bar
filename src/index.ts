@@ -1,11 +1,29 @@
-// Find the header
-// if header doesn't exist, return
-// Create div within div; append to header
+import { throttle } from 'lodash';
+import { getPercentScrolled } from './util';
+import * as constants from './constants';
 
+const wideTemplateProgressBar = (): void => {
+    const headerElement = document.querySelector(constants.headerSelector);
+    if (!headerElement) return;
 
-//Listen for (throttled) scroll events:
+    const outerDiv = document.createElement('div');
+    outerDiv.classList.add('progress-outer');
 
-//Check how far down the page user has scrolled
-//Convert to percentage
-//Use percentage to set inner progress div's width
+    const innerDiv = document.createElement('div');
+    innerDiv.classList.add('progress-inner');
+
+    outerDiv.appendChild(innerDiv);
+    headerElement.appendChild(outerDiv);
+
+    const handleScroll = (): void => {
+        const percentScrolled = getPercentScrolled();
+
+        innerDiv.style.width = `${percentScrolled}%`;
+    }
+
+    document.addEventListener('scroll', throttle(handleScroll, 150));
+}
+
+wideTemplateProgressBar();
+
 
