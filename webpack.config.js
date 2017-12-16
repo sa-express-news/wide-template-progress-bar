@@ -14,9 +14,6 @@ module.exports = {
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
                 exclude: /node_modules/,
-                options: {
-                    appendTsSuffixTo: [/\.vue$/],
-                }
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
@@ -26,6 +23,9 @@ module.exports = {
                 }
             }
         ]
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js']
     },
     devServer: {
         historyApiFallback: true,
