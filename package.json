@@ -1,0 +1,21 @@
+{
+  "name": "wide-template-progress-bar",
+  "version": "0.0.1",
+  "description": "Display a colored progress bar anchored to the header of wide template articles.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "build": "NODE_ENV='production' webpack"
+  },
+  "author": "Kia Farhang",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^3.2.0",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.91",
+    "lodash": "^4.17.4"
+  }
+}
